@@ -23,29 +23,29 @@ pixels.begin();
     message[message_pos] = inByte; 
     message_pos++; 
  } else { 
-    message[message_pos] = '\0'; 
-    number = atoi(message); 
+     message[message_pos] = '\0'; 
+     number = atoi(message); 
     if(number==-1&&!leds_on){ 
     for (int i = 0; i < LED_NUM; i++) { 
-     pixels.setPixelColor(i, pixels.Color(0, 255, 0)); 
-     pixels.show(); 
-     leds_on = true; 
+      pixels.setPixelColor(i, pixels.Color(0, 255, 0)); 
+      pixels.show(); 
+      leds_on = true; 
    } 
  } 
-  else{ 
+else{ 
    if (number! =0) { 
      ser.write(number); 
   } 
  else if(number==0) { 
- for (int i = 0; i < LED_NUM; i++) { 
-  pixels.setPixelColor(i, pixels.Color(255, 0, 0)); 
-  pixels.show(); 
-} 
-ser.write(number); 
-leds_on = false; 
-} 
-} 
-message_pos = 0; 
-} 
-} 
+    for (int i = 0; i < LED_NUM; i++) { 
+     pixels.setPixelColor(i, pixels.Color(255, 0, 0)); 
+     pixels.show(); 
+    } 
+    ser.write(number); 
+    leds_on = false; 
+    } 
+   } 
+   message_pos = 0; 
+  } 
+ } 
 }  
